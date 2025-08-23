@@ -1,53 +1,44 @@
-# DSP48A1
+# DSP48A1 FPGA Slice (Verilog)
 
-This project implements a behavioral Verilog model of the Xilinx Spartan-6 DSP48A1 slice, widely used in math-intensive FPGA applications. The design supports parameterized pipelining, pre-adder/subtractor, multiplier, and post-adder/subtractor functionality.
+This project implements a **behavioral Verilog model** of the **Xilinx Spartan-6 DSP48A1 slice**, widely used in math-intensive FPGA applications. The design supports parameterized pipelining, pre-adder/subtractor, multiplier, and post-adder/subtractor functionality.
 
-✨ Features
+## Features
 
-Supports both synchronous and asynchronous resets
+* Supports both **synchronous** and **asynchronous resets**
+* Parameterized registers:
 
-Parameterized registers:
+  * A0REG, A1REG, B0REG, B1REG
+  * CREG, DREG, MREG, PREG
+  * OPMODEREG, CARRYINREG, CARRYOUTREG
+* Flexible input routing:
 
-A0REG, A1REG, B0REG, B1REG
+  * `B_INPUT = DIRECT or CASCADE`
+* Configurable carry-in selection:
 
-CREG, DREG, MREG, PREG
+  * `CARRYINSEL = OPMODE5 or CARRYIN`
+* Modular design with **gray\_mux\_sync** and **gray\_mux\_async** for pipelining
+* **Self-checking SystemVerilog testbench** with directed test patterns
 
-OPMODEREG, CARRYINREG, CARRYOUTREG
+## Verification
 
-Flexible input routing:
+* Simulated in **QuestaSim / Vivado Simulator**
+* Testbench includes 4 directed test paths verifying:
 
-B_INPUT = DIRECT or CASCADE
+  * Reset operation
+  * Pre-adder/subtractor
+  * Multiplier
+  * Post-adder with feedback and cascade paths
+* 100 MHz clock constraint (Vivado XDC file)
 
-Configurable carry-in selection:
+## Tools
 
-CARRYINSEL = OPMODE5 or CARRYIN
+* **HDL**: Verilog / SystemVerilog
+* **Simulation**: QuestaSim
+* **Synthesis**: Xilinx Vivado
+* **Target FPGA**: Spartan-6 / Artix-7 (xc7a200tffg1156-3)
 
-Modular design with gray_mux_sync and gray_mux_async for pipelining
 
-Self-checking SystemVerilog testbench with directed test patterns
+## References
 
-🧪 Verification
-
-Simulated in QuestaSim / Vivado Simulator
-
-Testbench includes 4 directed test paths verifying:
-
-Reset operation
-
-Pre-adder/subtractor
-
-Multiplier
-
-Post-adder with feedback and cascade paths
-
-100 MHz clock constraint (Vivado XDC file)
-
-🛠 Tools
-
-HDL: Verilog / SystemVerilog
-
-Simulation: QuestaSim
-
-Synthesis: Xilinx Vivado
-
-Target FPGA: Spartan-6 / Artix-7 (xc7a200tffg1156-3)
+* Xilinx Spartan-6 DSP48A1 User Guide ([UG389](https://www.xilinx.com/support/documentation/user_guides/ug389.pdf))
+  
