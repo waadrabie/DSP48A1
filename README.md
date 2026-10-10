@@ -41,4 +41,8 @@ This project implements a **behavioral Verilog model** of the **Xilinx Spartan-6
 ## References
 
 * Xilinx Spartan-6 DSP48A1 User Guide ([UG389](https://www.xilinx.com/support/documentation/user_guides/ug389.pdf))
+
+## Author
+
+Waad Rabie Mahmoud
   
